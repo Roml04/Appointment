@@ -1,0 +1,30 @@
+.nav-bar, .list-container, .nav-list_item {
+    display: flex;
+}
+
+.logo-navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-bar {
+    justify-content: end;
+    margin: 1rem 0;
+}
+
+.list-container {
+    gap: 1rem;
+}
+
+.nav-link {
+    display: flex;
+    width: 8rem;
+
+    justify-content: center;
+    padding: 0.25rem 0;
+
+    border-style: solid;
+    border-width: 0.07rem;
+    border-radius: 100rem;
+}
