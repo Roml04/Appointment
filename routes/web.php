@@ -2,9 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Authenticated & Guests
+
 Route::get('/', function () {
     return view('landing');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('register');
+});
+
+// Authenticated Only
 
 Route::get('/home', function () {
     return view('home', [
@@ -12,8 +24,8 @@ Route::get('/home', function () {
     ]);
 });
 
-Route::get('/appointment', function () {
-    return view('appointment');
+Route::get('/appointments', function () {
+    return view('appointments');
 });
 
 Route::get('/doctors', function () {
