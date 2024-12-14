@@ -6,7 +6,7 @@
 <header class="header-container">
 
     <div class="logo-navbar-container">
-        <h2>Brand</h2>
+        <a href="/home"><h2>Brand</h2></a>
         <nav class="nav-bar">
         <ul class="list-container">
             <li class="nav-list_item"><a class="nav-link nav-text" href="/home">Home</a></li>

@@ -9,8 +9,6 @@
 <body>
     <x-header />
 
-    <p>Welcome,</p>
-    <h1>{{ $userName }}</h1>
-    <p>Have no idea who to consult with? No problem! Let us explore the <a href="/doctors">Doctors Tab</a> to search for the right doctor for you.</p>
+    <h1>LANDING PAGE</h1>
 </body>
 </html>
