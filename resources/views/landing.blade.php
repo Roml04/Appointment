@@ -13,6 +13,5 @@
     <section>
         <h1>LANDING PAGE</h1>
     </section>
-    
 </body>
 </html>
