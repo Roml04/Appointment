@@ -4,7 +4,7 @@
 </head>
 
 @auth
-    <header class="header-container">
+    <header>
 
         <div class="logo-navbar-container">
             <a href="/home"><h2>Brand</h2></a>
