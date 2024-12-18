@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('patient_id');
             $table->foreign('patient_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('contacts');
             $table->timestamps();
         });
     }
