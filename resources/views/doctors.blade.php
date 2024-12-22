@@ -12,7 +12,7 @@
     <x-header/>
     <ul>
         @foreach($doctors as $doctor)
-            <li class="doctor-list">
+            <li>
                 <div>
                     <h2>{{ $doctor->firstname }}</h2>
                     <p>{{ $doctor->specialization }}</p>

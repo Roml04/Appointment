@@ -14,7 +14,7 @@
         <a href="/">Back</a>
     </header>
     <form action="">
-
+        @csrf
         <h1>Log In</h1>
         <fieldset>
             <label for="username">Username</label>

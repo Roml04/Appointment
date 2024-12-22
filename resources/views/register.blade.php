@@ -11,11 +11,11 @@
 <body>
 
     <header>
-        <a class="back-button" href="/">Back</a>
+        <a href="/">Back</a>
     </header>
 
     <form action="">
-
+        @csrf
         <h1>Register an Account</h1>
         <fieldset>
             <h2>Personal Information</h2>
