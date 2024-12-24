@@ -4,52 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('/css/global.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/header.css') }}">
     <title>Register</title>
 </head>
-<body>
-
-    <header>
-        <a href="/">Back</a>
-    </header>
-
-    <form action="">
+<body class="flex flex-col">
+    <x-headerguest/>    
+    <form action="" class="flex flex-col flex-1 items-center gap-5 w-full pb-10">
         @csrf
         <h1>Register an Account</h1>
-        <fieldset>
-            <h2>Personal Information</h2>
-            <fieldset>
-                <label for="firstName">First Name</label>
-                <input id="firstName" type="text" required>
-        
-                <label for="middleName">Middle Name</label>
-                <input id="middleName" type="text">
-        
-                <label for="lastName">Last Name</label>
-                <input id="lastName" type="text" required>
-        
-                <label for="birthDate">Birthdate</label>
-                <input id="birthDate" type="date" required>
+        <fieldset class="flex flex-col gap-2.5 w-2/4">
+            <fieldset class="flex flex-col gap-2.5 mb-10">
+                <h2>Personal Information</h2>
+
+                <fieldset class="flex flex-col">
+                    <label for="firstName">First Name</label>
+                    <input placeholder="Enter your First Name" id="firstName" type="text" required>
+            
+                    <label for="middleName">Middle Name</label>
+                    <input placeholder="Enter your Middle Name" id="middleName" type="text">
+            
+                    <label for="lastName">Last Name</label>
+                    <input placeholder="Enter your Last Name" id="lastName" type="text" required>
+            
+                    <label for="birthDate">Birthdate</label>
+                    <input id="birthDate" type="date" required>
+                </fieldset>
     
-                <h3>User Type</h3>
-                <input id="doctor" type="radio" value="Doctor" name="userType" required>
-                <label for="doctor">Doctor</label>
-    
-                <input id="patient" type="radio" value="Patient" name="userType" required>
-                <label for="patient">Patient</label>
+                <fieldset class="flex flex-col gap-2">
+                    <h3>User Type</h3>
+                    <fieldset class="flex gap-2">
+                        <fieldset class="flex justify-center items-center w-full">
+                            <label class="cstm-radio-label text-center border border-1 border-solid rounded-2xl border-black w-full py-1" for="doctor">
+                                <input class="hidden" id="doctor" type="radio" value="Doctor" name="userType" required>
+                                Doctor
+                            </label>
+                        </fieldset>
+            
+                        <fieldset class="flex justify-center items-center w-full">
+                            <label class="cstm-radio-label text-center border border-1 border-solid rounded-2xl border-black w-full py-1" for="patient">
+                                <input class="hidden" id="patient" type="radio" value="Patient" name="userType" required>
+                                Patient
+                            </label>
+                        </fieldset>
+                    </fieldset>
+                </fieldset>
             </fieldset>
     
-            <h2>Account Credentials</h2>
-            <fieldset>
-                <label for="userEmail">Email</label>
-                <input id="userEmail" type="email" required>
-                
-                <label for="userPassword">Password</label>
-                <input id="userPassword" type="password" required>
+            <fieldset class="flex flex-col gap-2.5">
+                <h2>Account Credentials</h2>
+
+                <fieldset class="flex flex-col">
+                    <label for="userEmail">Email</label>
+                    <input placeholder="Email" id="userEmail" type="email" required>
+                    
+                    <label for="userPassword">Password</label>
+                    <input placeholder="Password" id="userPassword" type="password" required>
+                </fieldset>
+
             </fieldset>
     
-            <input type="submit" value="Register">
+            <input class="cstm-button" type="submit" value="Register">
         </fieldset>
         
     </form>

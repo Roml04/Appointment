@@ -1,3 +1,84 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Bodoni';
+    src: url('../../public/fonts/Bodoni_PT.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'Benton Modern Display';
+    src: url('../../public/fonts/BentonModDisp.otf') format('otf');
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('../../public/fonts/Spectral-Regular.ttf') format('ttf');
+}
+
+.font-bodoni {
+    font-family: 'Bodoni', 'Times New Roman', Times, serif;
+}
+
+.font-benton {
+    font-family: 'Benton Modern Display', 'Times New Roman', Times, serif;
+}
+
+.font-spectral {
+    font-family: 'Spectral', sans-serif;
+}
+
+* {
+    @apply font-bodoni;
+    @apply focus:outline-gray-300;
+}
+
+@layer base {
+    .cstm-navbar-list {
+        @apply px-8 rounded-full transition-all;
+    }
+}
+
+h1 {
+    @apply text-3xl font-bold;
+}
+
+h2 {
+    @apply text-2xl font-bold;
+}
+
+h3 {
+    @apply text-lg font-bold;   
+}
+
+p {
+    @apply font-spectral text-base text-justify;
+}
+
+html {
+    @apply h-full;
+}
+
+body {
+    @apply px-14 min-h-full;
+}
+
+input {
+    @apply mb-2 px-2.5 py-2 rounded-xl;
+}
+
+@layer components {
+
+    header {
+        @apply flex flex-col py-6 gap-2.5 w-full;
+    }
+
+    .cstm-radio-label:has(input:checked) {
+        @apply bg-black text-white
+    }
+    
+    .cstm-button {
+        @apply w-full py-2 rounded-full hover:bg-black hover:text-white transition-all
+    }
+}
