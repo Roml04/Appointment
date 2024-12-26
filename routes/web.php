@@ -20,7 +20,7 @@ Route::get('/register', function () {
 // Authenticated Only
 
 Route::get('/dashboard', function () {
-    return view('home', [
+    return view('dashboard', [
         'userName' => 'Patient Name'
     ]);
 });

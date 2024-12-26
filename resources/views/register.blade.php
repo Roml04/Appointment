@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
+    @vite('resources/css/app.css')
 </head>
 <body class="flex flex-col">
     <x-headerguest/>    
-    <form action="" class="flex flex-col flex-1 items-center gap-5 w-full pb-10">
+    <form action="" class="flex flex-col flex-1 items-center gap-6 w-full pb-10">
         @csrf
         <h1>Register an Account</h1>
-        <fieldset class="flex flex-col gap-2.5 w-2/4">
-            <fieldset class="flex flex-col gap-2.5 mb-10">
+        <fieldset class="flex flex-col gap-6 w-2/4">
+            <fieldset class="flex flex-col gap-2 mb-6">
                 <h2>Personal Information</h2>
 
-                <fieldset class="flex flex-col">
+                <fieldset class="flex flex-col gap-2">
                     <label for="firstName">First Name</label>
                     <input placeholder="Enter your First Name" id="firstName" type="text" required>
             
@@ -49,10 +50,10 @@
                 </fieldset>
             </fieldset>
     
-            <fieldset class="flex flex-col gap-2.5">
+            <fieldset class="flex flex-col gap-2">
                 <h2>Account Credentials</h2>
 
-                <fieldset class="flex flex-col">
+                <fieldset class="flex flex-col gap-2">
                     <label for="userEmail">Email</label>
                     <input placeholder="Email" id="userEmail" type="email" required>
                     

@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Schedules</title>
+    @vite('resources/css/app.css')
 </head>
 <body>
-    <x-header />
+    <x-sidebar/>
     <h1>Schedule an Appointment</h1>
     <form action="">
         @csrf

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Brand Name</title>
+    @vite('resources/css/app.css')
     <style>
         * {
             color: white;
@@ -21,7 +22,7 @@
     </style>
 </head>
 <body class="bg-[url('../../public/images/bg01.jpg')] backdrop-brightness-50 bg-cover flex flex-col">
-    <x-header />
+    <x-header/>
     <section class="flex flex-col items-center justify-center flex-1 gap-6">
         <div class="flex flex-col items-center gap-1">
             <h1>Avoid Hassles and Delays</h1>
