@@ -82,3 +82,7 @@ input {
         @apply w-full py-2 rounded-full hover:bg-black hover:text-white transition-all
     }
 }
+
+tbody > tr:nth-child(odd) {
+    @apply bg-gray-200;
+}

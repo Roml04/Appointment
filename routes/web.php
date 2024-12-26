@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,9 +26,7 @@ Route::get('/dashboard', function () {
     ]);
 });
 
-Route::get('/appointments', function () {
-    return view('appointments');
-});
+Route::get('appointments', [AppointmentController::class, 'index']);
 
 Route::get('doctors', [DoctorController::class, 'index']);
 

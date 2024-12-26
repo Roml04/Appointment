@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('status');
             $table->string('appointment_type');
             $table->date('appointment_date');
-            $table->date('appointment-time');
+            $table->time('appointment_time');
             $table->text('notes');
             $table->timestamps();
         });
