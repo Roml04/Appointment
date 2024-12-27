@@ -18,7 +18,7 @@
                 <div class="flex flex-col gap-2.5">
                     <p>Welcome,</p>
                     <h1>{{ $userName }}</h1>
-                    <p class="w-2/4">Have no idea who to consult with? No problem! Let us explore the <a class="inline hover:underline" href="/doctors">Doctors Tab</a> to find the right doctor for you. Browse through a variety of specialists, read their profiles, and make an informed choice for your health needs with just a few clicks.</p>
+                    <p class="w-2/4">Have no idea who to consult with? No problem! Let us explore the <a class="inline hover:underline" href="{{ route('auth.doctors.index') }}">Doctors Tab</a> to find the right doctor for you. Browse through a variety of specialists, read their profiles, and make an informed choice for your health needs with just a few clicks.</p>
                 </div>
                 
                 <div class="flex flex-col gap-2.5">
@@ -39,7 +39,7 @@
                 <div class="w-full flex flex-col">
                     <h2 class="pb-5">Status</h2>
                     <div class="flex gap-5 flex-1">
-                        <a href="/doctors" class="flex justify-between w-full items-center px-5">
+                        <a href="{{ route('auth.doctors.index') }}" class="flex justify-between w-full items-center px-5">
                             <div>
                                 <strong>1</strong>
                                 <p>All Doctors</p>
@@ -80,10 +80,10 @@
                         <tbody>
                             {{-- @foreach() --}}
                                 <tr class="hover:bg-blue-100">
-                                    <td><a class="py-2.5 flex justify-center" href="/appointments">1sdfsdf0</a></td>
-                                    <td><a class="py-2.5 flex justify-center" href="/appointments">10</a></td>
-                                    <td><a class="py-2.5 flex justify-center" href="/appointments">10</a></td>
-                                    <td><a class="py-2.5 flex justify-center" href="/appointments">10</a></td>
+                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointments.index') }}">1sdfsdf0</a></td>
+                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointments.index') }}">10</a></td>
+                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointments.index') }}">10</a></td>
+                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointments.index') }}">10</a></td>
                                 </tr>
                             {{-- @endforeach --}}
                         </tbody>

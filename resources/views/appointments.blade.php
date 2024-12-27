@@ -27,9 +27,9 @@
             <tbody>
                 @foreach($appointments as $appointment)
                     <tr class="py-20 group hover:bg-blue-100">
-                        <td><a class="py-2.5 group-hover:text-blue-800 flex justify-center" href="">{{ $appointment['appointment_type'] }}</a></td>
-                        <td><a class="py-2.5 group-hover:text-blue-800 flex justify-center" href="">--</a></td>     
-                        <td><a class="py-2.5 group-hover:text-blue-800 flex justify-center"> {{ $appointment['appointment_date'] }} | {{ $appointment['appointment-time'] }} </a></td>
+                        <td><a class="py-2.5 flex justify-center">{{ $appointment['appointment_type'] }}</a></td>
+                        <td><a class="py-2.5 flex justify-center">--</a></td>     
+                        <td><a class="py-2.5 flex justify-center"> {{ $appointment['appointment_date'] }} | {{ $appointment['appointment-time'] }} </a></td>
                     </tr>
                 @endforeach
             </tbody>

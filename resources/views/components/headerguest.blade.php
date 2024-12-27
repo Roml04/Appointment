@@ -4,6 +4,6 @@
 
 <body>
     <header>
-        <a href="/">Back</a>
+        <a href="{{ route('guest.landing') }}">Back</a>
     </header>
 </body>

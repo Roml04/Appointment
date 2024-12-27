@@ -28,7 +28,7 @@
             <h1>Avoid Hassles and Delays</h1>
             <p class="text-center">Your Health, Just a Click Away.<br> Seamless Appointments, Anytime, Anywhere.<br>Care Made Convenient for You</p>
         </div>
-        <a class="px-5 py-1.5 border border-white border-solid rounded-full hover:bg-white hover:text-black transition-all" href="/doctors">Make an Appointment Now</a>
+        <a class="px-5 py-1.5 border border-white border-solid rounded-full hover:bg-white hover:text-black transition-all" href="{{ route('auth.doctors.index') }}">Make an Appointment Now</a>
     </section>
 </body>
 </html>

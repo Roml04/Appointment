@@ -19,7 +19,7 @@
                         <p>{{ $doctor->specialization }}</p>
                         <p></p>
                     </div>
-                    <a href="/schedule"><button>Schedule an Appointment</button></a>
+                    <a href="{{ route('auth.schedule') }}"><button>Schedule an Appointment</button></a>
                 </li>
             @endforeach
             

@@ -5,26 +5,12 @@
     <header>
         <div class="flex flex-row justify-between">
             <div>
-                @auth
-                    <a href="/dashboard"><h2>CompanyName</h2></a>
-                @endauth
-
-                @guest
-                    <a href="/"><h2>CompanyName</h2></a>
-                @endguest
+                <a href="{{ route('guest.landing') }}"><h2>CompanyName</h2></a>
             </div>
             <nav>
                 <ul class="flex flex-row gap-5">
-                    @auth
-                        <li class="cstm-navbar-list"><a class="" href="/dashboard">Home</a></li>
-                        <li class="cstm-navbar-list"><a class="" href="/doctors">Doctors</a></li>
-                        <li class="cstm-navbar-list"><a class="" href="/appointments">Appointments</a></li>
-                    @endauth
-                    
-                    @guest
-                        <li class="cstm-navbar-list"><a class="" href="/register">Register</a></li>
-                        <li class="cstm-navbar-list"><a class="" href="/login">Log In</a></li>
-                    @endguest
+                    <li class="cstm-navbar-list"><a class="" href="{{ route('guest.register') }}">Register</a></li>
+                    <li class="cstm-navbar-list"><a class="" href="{{ route('guest.login') }}">Log In</a></li>
                 </ul>
                 
             </nav>
