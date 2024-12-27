@@ -10,8 +10,8 @@ class DoctorController extends Controller
 {
     public function index() {
         
-        $doctors = User::all(); // Replace with the Doctor model
+        $doctors = Doctor::all(); // Replace with the Doctor model
 
-        return view('/doctors',["doctors" => $doctors]);
+        return view('/doctors',["doctors" => $doctors, "pagename" => 'Doctors']);
     }
 }

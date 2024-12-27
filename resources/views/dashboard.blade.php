@@ -10,14 +10,16 @@
 <body class="flex gap-6">
     <x-sidebar/>
     <div class="w-full">
-        <x-headerauth/>
+        <x-headerauth>
+            <h2>{{ $pagename }}</h2>
+        </x-headerauth>
         <section class="flex flex-col w-full">
 
             {{-- Welcome Section --}}
             <div class="bg-[url('../../public/images/bg02.jpg')] bg-cover p-6 rounded-xl flex flex-col gap-6">
                 <div class="flex flex-col gap-2.5">
                     <p>Welcome,</p>
-                    <h1>{{ $userName }}</h1>
+                    <h1>-User-</h1>
                     <p class="w-2/4">Have no idea who to consult with? No problem! Let us explore the <a class="inline hover:underline" href="{{ route('auth.doctors.index') }}">Doctors Tab</a> to find the right doctor for you. Browse through a variety of specialists, read their profiles, and make an informed choice for your health needs with just a few clicks.</p>
                 </div>
                 
@@ -38,7 +40,7 @@
             <div class="flex p-6 gap-10 h-fit">
                 <div class="w-full flex flex-col">
                     <h2 class="pb-5">Status</h2>
-                    <div class="flex gap-5 flex-1">
+                    <div class="flex gap-5 flex-1 divide-x-[0.063rem] divide-gray-300">
                         <a href="{{ route('auth.doctors.index') }}" class="flex justify-between w-full items-center px-5">
                             <div>
                                 <strong>1</strong>
@@ -46,7 +48,7 @@
                             </div>
                             <svg class="group-hover:fill-white" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#3b3b3b"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M20,6h-4V4c0-1.1-0.9-2-2-2h-4C8.9,2,8,2.9,8,4v2H4C2.9,6,2,6.9,2,8v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8 C22,6.9,21.1,6,20,6z M10,4h4v2h-4V4z M20,20H4V8h16V20z"/><polygon points="13,10 11,10 11,13 8,13 8,15 11,15 11,18 13,18 13,15 16,15 16,13 13,13"/></g></g></svg>
                         </a>
-                        <div class="min-h-full w-[1px] rounded-full bg-gray-300"></div>
+
                         <a href="" class="flex justify-between w-full items-center px-5">
                             <div>
                                 <strong>1</strong>

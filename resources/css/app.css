@@ -74,6 +74,10 @@ input {
         @apply flex flex-col py-6 gap-2.5 w-full;
     }
 
+    .cstm-sidebar {
+        @apply py-6;
+    }
+
     .cstm-radio-label:has(input:checked) {
         @apply bg-black text-white
     }
@@ -83,6 +87,7 @@ input {
     }
 }
 
-tbody > tr:nth-child(odd) {
+tbody > tr:nth-child(odd),
+.doctor-list > li:nth-child(odd) {
     @apply bg-gray-200;
 }
