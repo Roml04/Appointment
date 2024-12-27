@@ -4,7 +4,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use Illuminate\Support\Facades\Route;
 
-// Authenticated & Guests
+// Authenticated(?) & Guests
 
 Route::get('/', function () {
     return view('landing');

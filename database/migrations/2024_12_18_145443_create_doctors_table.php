@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('doctor_id');
-            $table->foreign('doctor_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->unsignedBigInteger('doctor_id');
+            // $table->foreign('doctor_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('specialization');
             $table->timestamps();
         });

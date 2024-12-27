@@ -25,8 +25,8 @@
 
         <label for="appointment-date">Date</label><br>
         <input id="appointment-date" type="date"><br>
-        <label for="appointment-time">Time</label><br>
-        <input id="appointment-time" type="time"><br>
+        <label for="appointment_time">Time</label><br>
+        <input id="appointment_time" type="time"><br>
 
         <label for="additional-notes">Notes (Optional)</label><br>
         <textarea name="" id="additional-notes" cols="30" rows="10"></textarea><br>

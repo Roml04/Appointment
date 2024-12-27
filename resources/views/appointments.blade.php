@@ -29,7 +29,7 @@
                     <tr class="py-20 group hover:bg-blue-100">
                         <td><a class="py-2.5 flex justify-center">{{ $appointment['appointment_type'] }}</a></td>
                         <td><a class="py-2.5 flex justify-center">--</a></td>     
-                        <td><a class="py-2.5 flex justify-center"> {{ $appointment['appointment_date'] }} | {{ $appointment['appointment-time'] }} </a></td>
+                        <td><a class="py-2.5 flex justify-center"> {{ $appointment['appointment_date'] }} | {{ $appointment['appointment_time'] }} </a></td>
                     </tr>
                 @endforeach
             </tbody>
