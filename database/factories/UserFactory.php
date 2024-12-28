@@ -25,6 +25,7 @@ class UserFactory extends Factory
     {
         return [
             'firstname' => fake()->name(),
+            'middlename' => fake()->name(),
             'lastname' => fake()->name(),
             'birthdate' => fake()->date(),
             'usertype' => fake()->randomElement(['doctor', 'patient']),

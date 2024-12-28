@@ -1,3 +1,5 @@
+@use('Illuminate\Support\Facades\Auth')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +21,7 @@
             <div class="bg-[url('../../public/images/bg02.jpg')] bg-cover p-6 rounded-xl flex flex-col gap-6">
                 <div class="flex flex-col gap-2.5">
                     <p>Welcome,</p>
-                    <h1>-User-</h1>
+                    <h1> {{ Auth::user()->firstname . " " . Auth::user()->lastname }} </h1>
                     <p class="w-2/4">Have no idea who to consult with? No problem! Let us explore the <a class="inline hover:underline" href="{{ route('auth.doctors.index') }}">Doctors Tab</a> to find the right doctor for you. Browse through a variety of specialists, read their profiles, and make an informed choice for your health needs with just a few clicks.</p>
                 </div>
                 

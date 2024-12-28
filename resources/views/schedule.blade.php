@@ -11,7 +11,7 @@
     <x-sidebar/>
     <div class="py-6 w-full space-y-5">
         <h1>Schedule an Appointment</h1>
-        <form class="space-y-2.5" action="" method="POST">
+        <form class="space-y-2.5" action="" method="">
             @csrf
             <fieldset class="flex justify-between items-center h-10">
                 <label for="appointment-type">Appointment Type</label>

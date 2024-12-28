@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Authenticated(?) & Guests
@@ -35,8 +36,9 @@ Route::get('/appointments', [AppointmentController::class, 'index'])->name('auth
 // Doctors
 Route::get('/doctors', [DoctorController::class, 'index'])->name('auth.doctors.index');
 
-
 // Schedule
 Route::get('/schedule', function () {
     return view('schedule');
 })->name('auth.schedule');
+
+Route::post('/register', [UserController::class, 'register'])->name('user.register');
