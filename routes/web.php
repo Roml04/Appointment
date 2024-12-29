@@ -41,6 +41,10 @@ Route::get('/schedule', function () {
     return view('schedule');
 })->name('auth.schedule');
 
+// POSTs
+
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
 
 Route::post('/login', [UserController::class, 'login'])->name('user.login');
+
+Route::post('/schedule', [AppointmentController::class, 'create'])->name('auth.create.appointment');

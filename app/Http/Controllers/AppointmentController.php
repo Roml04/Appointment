@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateAppointmentRequest;
 use App\Models\Appointment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
 {
@@ -12,17 +15,23 @@ class AppointmentController extends Controller
         $appointments = Appointment::all();
 
         foreach($appointments as $appointment) {
-            $date = $appointment['appointment_date'];
-            $formattedDate = Carbon::createFromFormat('Y-m-d', $date)->format('M d, Y');
-
-            $time = $appointment['appointment_time'];
-            $formattedTime = Carbon::createFromFormat('H:m:s', $time)->format('h:i A');
-
-            $appointment['appointment_date'] = $formattedDate;
-            $appointment['appointment_time'] = $formattedTime;
+            $appointment['appointment_date'] = Carbon::createFromFormat('Y-m-d', $appointment['appointment_date'])->format('M d, Y');
+            $appointment['appointment_time'] = Carbon::createFromFormat('H:m:s', $appointment['appointment_time'])->format('h:i A');
         }
 
         return view('/appointments', ["appointments" => $appointments, "pagename" => "Appointments"]);
+    }
+
+    public function create(CreateAppointmentRequest $request) {
+
+        $validatedRequest = $request->validated();
+        
+        array_push($validatedRequest, ['patient_id' => null]);
+        array_push($validatedRequest, ['doctor_id' => null]);
+        
+        Appointment::create($validatedRequest);
+        return redirect()->route('auth.doctors.index');
+        
     }
 
 }

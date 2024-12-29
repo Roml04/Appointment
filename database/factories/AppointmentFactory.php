@@ -21,7 +21,13 @@ class AppointmentFactory extends Factory
         return [
             // 'doctor_id' => fake()->unique()->randomNumber(8, true),
             // 'patient_id' => fake()->unique()->randomNumber(8, true),
-            'status' => fake()->randomElement(['Scheduled', 'In Progress', 'Cancelled', 'Rescheduled', 'Completed', 'Overdue']),
+            'status' => fake()->randomElement([
+                'Scheduled', 
+                'In Progress', 
+                'Cancelled', 
+                'Rescheduled', 
+                'Completed', 
+                'Overdue']),
             'appointment_type' => fake()->randomElement([
                 'General Consultation', 
                 'Emergency Appointment', 

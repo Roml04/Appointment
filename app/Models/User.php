@@ -54,8 +54,7 @@ class User extends Authenticatable
     // User Defined
 
     protected static function booted() {
-
-        
+        //
     }
 
     public function patient() {
