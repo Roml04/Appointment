@@ -9,7 +9,7 @@
 </head>
 <body class="flex flex-col items-center">
     <x-headerguest/>
-    <form class="flex flex-col flex-1 items-center justify-center w-fit gap-6" action="">
+    <form class="flex flex-col flex-1 items-center justify-center w-fit gap-6" method="POST" action="{{ route('user.login') }}">
         @csrf
         <fieldset class="flex flex-col items-center gap-2">
             <h1>Log In</h1>
@@ -18,13 +18,13 @@
         <fieldset class="flex flex-col w-full gap-2.5">
 
             <fieldset class="flex flex-col gap-2">
-                <label class="" for="username">Username</label>
-                <input placeholder="Username" class="mb-2 px-2.5 py-2 rounded-xl" id="username" type="text">
+                <label class="" for="email">Email</label>
+                <input name="email" placeholder="Email" class="mb-2 px-2.5 py-2 rounded-xl" id="email" type="text">
             </fieldset>
             
             <fieldset class="flex flex-col gap-2">
                 <label class="" for="password">Password</label>
-                <input placeholder="Password" class="mb-2 px-2.5 py-2 rounded-xl" id="password" type="password">
+                <input name="password" placeholder="Password" class="mb-2 px-2.5 py-2 rounded-xl" id="password" type="password">
             </fieldset>
 
             <fieldset class="flex justify-center gap-2">

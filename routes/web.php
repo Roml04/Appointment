@@ -42,3 +42,5 @@ Route::get('/schedule', function () {
 })->name('auth.schedule');
 
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
+
+Route::post('/login', [UserController::class, 'login'])->name('user.login');

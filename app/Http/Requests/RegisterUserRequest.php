@@ -30,19 +30,17 @@ class RegisterUserRequest extends FormRequest
             'birthdate' => 'required|date|before:today',
             'usertype' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:8|max:255'
+            'password' => 'required|string|min:8|max:255'
         ];
     }
 
     public function prepareForValidation(): void
     {
-
-        $middlename = $this->middlename !== null ? Str::title($this->middlename) : null;
-
+        
         $this->merge([
             'firstname' => Str::title($this->firstname),
             'lastname' => Str::title($this->lastname),
-            'middlename' => $middlename,
+            'middlename' => $this->middlename !== null ? Str::title($this->middlename) : null,
         ]);
         
     }

@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -15,12 +13,15 @@ class UserController extends Controller
         // 
     }
 
-    public function login(Request $request) {
-        $validatedCredentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:8|max:255'
-        ]);
+    public function login(LoginUserRequest $request) {
+        
+        $validatedCredentials = $request->validated();
+        return redirect()->route('auth.dashboard');
 
+        if(Auth::attempt(($validatedCredentials))) {
+            $request->session()->regenerate();
+
+        }
         
     }
 
@@ -29,17 +30,6 @@ class UserController extends Controller
         // vvv place this in the app/Http/Requests vvv
 
         $validatedCredentials = $request->validated();
-        
-        $capitalizeFields = ['firstname', 'middlename', 'lastname'];
-        
-        foreach($capitalizeFields as $field) {
-            if(array_key_exists($field, $validatedCredentials)) {
-                $validatedCredentials[$field] = $validatedCredentials[$field] !== null 
-                ? Str::title($validatedCredentials[$field]) 
-                : null;
-                
-            }
-        }
 
         // ^^^ place this in the app/Http/Requests ^^^
         
