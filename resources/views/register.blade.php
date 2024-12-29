@@ -37,14 +37,14 @@
                     <fieldset class="flex gap-2">
                         <fieldset class="flex justify-center items-center w-full">
                             <label class="cstm-radio-label text-center border border-1 border-solid rounded-2xl border-black w-full py-1" for="doctor">
-                                <input class="hidden" id="doctor" type="radio" value="isDoctor" name="usertype" required>
+                                <input class="hidden" id="doctor" type="radio" value="doctor" name="usertype" required>
                                 Doctor
                             </label>
                         </fieldset>
             
                         <fieldset class="flex justify-center items-center w-full">
                             <label class="cstm-radio-label text-center border border-1 border-solid rounded-2xl border-black w-full py-1" for="patient">
-                                <input class="hidden" id="patient" type="radio" value="isPatient" name="usertype" required>
+                                <input class="hidden" id="patient" type="radio" value="patient" name="usertype" required>
                                 Patient
                             </label>
                         </fieldset>

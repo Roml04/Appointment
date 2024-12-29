@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
 
 use Illuminate\Http\Request;
@@ -14,26 +15,34 @@ class UserController extends Controller
         // 
     }
 
-    public function register(Request $request) {
-        
+    public function login(Request $request) {
         $validatedCredentials = $request->validate([
-            'firstname' => 'required|string|max:255',
-            'middlename' => 'required|string|max:255',
-            'lastname' => 'required|string|max:255',
-            'birthdate' => 'required|date|before:today',
-            'usertype' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:8|max:255'
         ]);
 
-        $capitalizeFields = ['firstname', 'middlename', 'lastname'];
+        
+    }
 
+    public function register(RegisterUserRequest $request) {
+
+        // vvv place this in the app/Http/Requests vvv
+
+        $validatedCredentials = $request->validated();
+        
+        $capitalizeFields = ['firstname', 'middlename', 'lastname'];
+        
         foreach($capitalizeFields as $field) {
-            if(isset($validatedCredentials[$field])) {
-                $validatedCredentials[$field] = Str::title($validatedCredentials[$field]);
+            if(array_key_exists($field, $validatedCredentials)) {
+                $validatedCredentials[$field] = $validatedCredentials[$field] !== null 
+                ? Str::title($validatedCredentials[$field]) 
+                : null;
+                
             }
         }
 
+        // ^^^ place this in the app/Http/Requests ^^^
+        
         User::create($validatedCredentials);
 
         if(Auth::attempt($validatedCredentials)) {
