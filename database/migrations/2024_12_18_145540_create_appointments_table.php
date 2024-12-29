@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('appointment_type');
             $table->date('appointment_date');
             $table->time('appointment_time');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\RegisterUserRequest;
+use App\Models\Doctor;
+use App\Models\Patient;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,13 +29,18 @@ class UserController extends Controller
 
     public function register(RegisterUserRequest $request) {
 
-        // vvv place this in the app/Http/Requests vvv
-
         $validatedCredentials = $request->validated();
 
-        // ^^^ place this in the app/Http/Requests ^^^
         
-        User::create($validatedCredentials);
+        $user = User::create($validatedCredentials);
+
+        if($validatedCredentials['usertype'] === 'patient') {
+            Patient::create(['user_id' => $user->id]);
+        }
+
+        if($validatedCredentials['usertype'] === 'doctor') {
+            Doctor::create(['user_id' => $user->id]);
+        }
 
         if(Auth::attempt($validatedCredentials)) {
             $request->session()->regenerate();

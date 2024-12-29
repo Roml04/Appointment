@@ -41,6 +41,7 @@
         
         {{-- component --}}
         <form class="flex justify-center" action="">
+            @csrf
             <input class="py-2 rounded-full hover:text-blue-500" type="submit" value="Log Out">
         </form>
     </div>
