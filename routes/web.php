@@ -32,16 +32,19 @@ Route::get('/dashboard', function () {
 // Appointments
 Route::get('/appointments', [AppointmentController::class, 'index'])->name('auth.appointments.index');
 
-
 // Doctors
 Route::get('/doctors', [DoctorController::class, 'index'])->name('auth.doctors.index');
 
 // Schedule
-Route::get('/schedule', function () {
-    return view('schedule');
-})->name('auth.schedule');
+// Route::get('/doctors/{doctor_id}', function ($id) {
+//     return view('schedule', ["doctor_id" => $id]);
+// })->name('auth.doctors.schedule');
 
-// POSTs
+Route::get('/doctors/{doctor_id}', function ($doctor_id) {
+    return view('schedule', ["doctor_id" => $doctor_id]);
+})->name('auth.doctors.schedule');
+
+// POST Methods
 
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
 
@@ -49,4 +52,4 @@ Route::post('/login', [UserController::class, 'login'])->name('user.login');
 
 Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
 
-Route::post('/schedule', [AppointmentController::class, 'create'])->name('auth.create.appointment');
+Route::post('/doctors/{doctor_id}', [AppointmentController::class, 'create'])->name('auth.create.appointment');

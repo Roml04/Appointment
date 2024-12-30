@@ -18,15 +18,15 @@ class AppointmentController extends Controller
             $appointment['appointment_time'] = Carbon::createFromFormat('H:m:s', $appointment['appointment_time'])->format('h:i A');
         }
 
-        return view('/appointments', ["appointments" => $appointments, "pagename" => "Appointments"]);
+        return view('appointments', ["appointments" => $appointments, "pagename" => "Appointments"]);
     }
 
-    public function create(CreateAppointmentRequest $request) {
+    public function create(CreateAppointmentRequest $request, $doctor_id) {
 
         $validatedRequest = $request->validated();
         
         $validatedRequest['patient_id'] = Auth::user()->id;
-        // $validatedRequest['doctor_id'] = '';
+        $validatedRequest['doctor_id'] = $doctor_id;
         
         Appointment::create($validatedRequest);
         return redirect()->route('auth.doctors.index');

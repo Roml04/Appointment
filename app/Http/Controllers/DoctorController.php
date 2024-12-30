@@ -12,6 +12,6 @@ class DoctorController extends Controller
         
         $doctors = Doctor::all(); // Replace with the Doctor model
 
-        return view('/doctors',["doctors" => $doctors, "pagename" => 'Doctors']);
+        return view('doctors',["doctors" => $doctors, "pagename" => 'Doctors']);
     }
 }

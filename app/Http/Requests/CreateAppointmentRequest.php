@@ -26,7 +26,6 @@ class CreateAppointmentRequest extends FormRequest
             'appointment_date' => 'required|date|after:today',
             'appointment_time' => 'required|date_format:H:i',
             'notes' => 'nullable|string|max:255'
-
         ];
     }
 }
