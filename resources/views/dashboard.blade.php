@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Dashboard</title>
     @vite('resources/css/app.css')
 </head>
 <body class="flex gap-6">
@@ -29,6 +29,7 @@
                     <h3>Or Search a Doctor Here</h3>
                     <div>
                         <form action="">
+                            @csrf
                             <input class="py-1 px-5 w-5/12" placeholder="Search..." type="text">
                             
                             {{-- component? --}}

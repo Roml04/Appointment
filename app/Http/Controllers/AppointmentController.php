@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateAppointmentRequest;
 use App\Models\Appointment;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,8 +25,8 @@ class AppointmentController extends Controller
 
         $validatedRequest = $request->validated();
         
-        array_push($validatedRequest, ['patient_id' => null]);
-        array_push($validatedRequest, ['doctor_id' => null]);
+        $validatedRequest['patient_id'] = Auth::user()->id;
+        // $validatedRequest['doctor_id'] = '';
         
         Appointment::create($validatedRequest);
         return redirect()->route('auth.doctors.index');

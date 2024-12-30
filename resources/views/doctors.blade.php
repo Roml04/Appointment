@@ -17,8 +17,8 @@
             @foreach($doctors as $doctor)
                 <li class="group  flex w-full justify-between px-5 py-2.5">
                     <div>
-                        <h2>{{ $doctor->user['firstname'] }}</h2>
-                        <p>{{ $doctor['specialization'] }}</p>
+                        <h2>{{ $docFirstName = $doctor->user['firstname'] === null ? 'Unknown' : $doctor->user['firstname'] }}</h2>
+                        <p>{{ $docSpecialization = $doctor['specialization'] === null ? 'Unkown' : $doctor['specialization'] }}</p>
                         <p></p>
                     </div>
                     <a class="hidden hover:bg-blue-900 group-hover:block bg-blue-500 group-hover:text-white px-5 py-2 my-auto rounded-full" href="{{ route('auth.schedule') }}">Schedule an Appointment</a>

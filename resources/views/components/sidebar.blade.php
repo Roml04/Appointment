@@ -32,7 +32,8 @@
 
             <img class="size-20 rounded-full object-cover object-center" src="{{ asset('images/userpfp/default-userpfp.jpg') }}" alt="">
             <div class="overflow-hidden h-full flex flex-col justify-between py-2.5">
-                {{-- <h3>{{ Auth::user()->firstname }} . {{ Auth::user()->lastname }}</h3> --}}
+
+                {{-- {{ dd(Auth::user()) }} --}}
                 <h3 class="overflow-hidden text-ellipsis">{{ Auth::user()->firstname }}</h3>
                 <p class="overflow-hidden text-ellipsis">{{ Auth::user()->email }}</p>
             </div>
@@ -40,7 +41,7 @@
         </div>
         
         {{-- component --}}
-        <form class="flex justify-center" action="">
+        <form action="{{ route('user.logout') }}" method="POST" class="flex justify-center">
             @csrf
             <input class="py-2 rounded-full hover:text-blue-500" type="submit" value="Log Out">
         </form>

@@ -8,6 +8,7 @@ use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -18,12 +19,17 @@ class UserController extends Controller
     public function login(LoginUserRequest $request) {
         
         $validatedCredentials = $request->validated();
-        return redirect()->route('auth.dashboard');
-
+        
         if(Auth::attempt(($validatedCredentials))) {
             $request->session()->regenerate();
-
+            
+            return redirect()->route('auth.dashboard');
         }
+
+        return back()->withErrors([
+            'email' => 'The email did not match our records',
+            'password' => 'Wrong password'
+        ])->onlyInput('email');
         
     }
 
@@ -49,5 +55,19 @@ class UserController extends Controller
         }
         
         // create an error if the attempt() function somehow fails...
+    }
+
+    public function logout(Request $request) {
+
+        // dd($request);
+        
+        $request->session()->invalidate();
+        
+        $request->session()->regenerateToken();
+        
+        Auth::logout();
+
+        return redirect()->route('guest.landing');
+
     }
 }

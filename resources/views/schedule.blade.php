@@ -19,13 +19,13 @@
                 <label for="appointment-type">Appointment Type</label>
                 
                 <select name="appointment_type" id="appointment-type" required>
-                    <option value="general consultation">General Consultation</option>
-                    <option value="emergency appointment">Emergency Appointment</option>
-                    <option value="follow-up appointment">Follow-up Appointment</option>
-                    <option value="routine check-up">Routine Check-up</option>
-                    <option value="diagnostic appointment">Diagnostic Appointment</option>
-                    <option value="health screening management">Health Screening Management</option>
-                    <option value="immunization appointment">Immunization Appointment</option>
+                    <option value="General Consultation">General Consultation</option>
+                    <option value="Emergency Appointment">Emergency Appointment</option>
+                    <option value="Follow-up Appointment">Follow-up Appointment</option>
+                    <option value="Routine Check-up">Routine Check-up</option>
+                    <option value="Diagnostic Appointment">Diagnostic Appointment</option>
+                    <option value="Health Screening Management">Health Screening Management</option>
+                    <option value="Immunization Appointment">Immunization Appointment</option>
                 </select>
             
             </fieldset>

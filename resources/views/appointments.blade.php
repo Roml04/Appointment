@@ -26,8 +26,10 @@
                 @foreach($appointments as $appointment)
                     <tr class="py-20 group hover:bg-blue-100">
                         <td><a href="" class="py-2.5 px-10 flex justify-left">{{ $appointment['appointment_type'] }}</a></td>
-                        <td><a href="" class="py-2.5 px-10 flex justify-left">{{ $appointment->doctor->user['firstname'] }}</a></td>
+                        {{-- <td><a href="" class="py-2.5 px-10 flex justify-left">{{ $appointmentDocFname = $appointment->doctor->user['firstname'] === null ? 'Uknown' : $appointment->doctor->user['firstname'] }}</a></td> --}}
+                        <td><a href="" class="py-2.5 px-10 flex justify-left">{{ $appointmentDocFname = $appointment['doctor_id'] === null ? 'Uknown' : $appointment->doctor->user['firstname'] }}</a></td>
                         <td><a href="" class="py-2.5 px-10 flex justify-center"> {{ $appointment['appointment_date'] }} | {{ $appointment['appointment_time'] }} </a></td>
+                        {{-- <td><a href="" class="py-2.5 px-10 flex justify-center"> {{ $appointment['notes'] }} </a></td> --}}
                     </tr>
                 @endforeach
             </tbody>
