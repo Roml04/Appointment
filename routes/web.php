@@ -36,13 +36,7 @@ Route::get('/appointments', [AppointmentController::class, 'index'])->name('auth
 Route::get('/doctors', [DoctorController::class, 'index'])->name('auth.doctors.index');
 
 // Schedule
-// Route::get('/doctors/{doctor_id}', function ($id) {
-//     return view('schedule', ["doctor_id" => $id]);
-// })->name('auth.doctors.schedule');
-
-Route::get('/doctors/{doctor_id}', function ($doctor_id) {
-    return view('schedule', ["doctor_id" => $doctor_id]);
-})->name('auth.doctors.schedule');
+Route::get('/doctors/{doctor_id}', [AppointmentController::class, 'schedule'])->name('auth.doctors.schedule');
 
 // POST Methods
 

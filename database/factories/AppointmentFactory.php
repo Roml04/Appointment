@@ -19,8 +19,6 @@ class AppointmentFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'doctor_id' => fake()->unique()->randomNumber(8, true),
-            // 'patient_id' => fake()->unique()->randomNumber(8, true),
             'status' => fake()->randomElement([
                 'Scheduled', 
                 'In Progress', 
