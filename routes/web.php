@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\UserController;
+use App\Models\Appointment;
 use Illuminate\Support\Facades\Route;
 
 // Authenticated(?) & Guests
@@ -24,13 +25,14 @@ Route::get('/register', function () {
 // Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard', [
-        'userName' => 'Patient Name',
         'pagename' => 'Dashboard'
     ]);
 })->name('auth.dashboard');
 
 // Appointments
-Route::get('/appointments', [AppointmentController::class, 'index'])->name('auth.appointments.index');
+Route::get('/appointments', [AppointmentController::class, 'index'])->name('auth.appointment.index');
+
+Route::get('/appointments/{appointment_id}', [AppointmentController::class, 'display'])->name('auth.appointment.display');
 
 // Doctors
 Route::get('/doctors', [DoctorController::class, 'index'])->name('auth.doctors.index');
@@ -38,7 +40,7 @@ Route::get('/doctors', [DoctorController::class, 'index'])->name('auth.doctors.i
 // Schedule
 Route::get('/doctors/{doctor_id}', [AppointmentController::class, 'schedule'])->name('auth.doctors.schedule');
 
-// POST Methods
+
 
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
 
@@ -46,4 +48,6 @@ Route::post('/login', [UserController::class, 'login'])->name('user.login');
 
 Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
 
-Route::post('/doctors/{doctor_id}', [AppointmentController::class, 'create'])->name('auth.create.appointment');
+Route::post('/appointments/{appointment_id}', [AppointmentController::class, 'delete'])->name('auth.appointment.delete');
+
+Route::post('/doctors/{doctor_id}', [AppointmentController::class, 'create'])->name('auth.appointment.create');
