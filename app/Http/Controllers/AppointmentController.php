@@ -15,16 +15,14 @@ class AppointmentController extends Controller
 
         foreach($appointments as $appointment) {
             $appointment['appointment_date'] = Carbon::createFromFormat('Y-m-d', $appointment['appointment_date'])->format('M d, Y');
-            // dump("controller-before carbon" . $appointment['appointment_time']);
             $appointment['appointment_time'] = Carbon::createFromFormat('H:i:s', $appointment['appointment_time'])->format('h:i A');
-            // dump("controller-after carbon" . $appointment['appointment_time']);
+            $appointment['docFullName'] = $appointment->doctor->user->firstname . " " . $appointment->doctor->user->lastname;
         }
 
         return view('appointments', ["appointments" => $appointments, "pagename" => "Appointments"]);
     }
 
     public function display($appointment_id) {
-
         
         $appointmentDetails = Appointment::findOrFail($appointment_id);
 
@@ -44,8 +42,6 @@ class AppointmentController extends Controller
         
         $validatedRequest['patient_id'] = Auth::user()->patient->id;
         $validatedRequest['doctor_id'] = $doctor_id;
-
-        // dd($validatedRequest);
         
         Appointment::create($validatedRequest);
         return redirect()->route('auth.doctors.index');
