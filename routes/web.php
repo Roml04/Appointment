@@ -24,13 +24,14 @@ Route::get('/register', function () {
 // Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard', [
-        'userName' => 'Patient Name',
         'pagename' => 'Dashboard'
     ]);
 })->name('auth.dashboard');
 
 // Appointments
 Route::get('/appointments', [AppointmentController::class, 'index'])->name('auth.appointments.index');
+
+Route::get('/appointments/{appointment_id}', [AppointmentController::class, 'display'])->name('auth.appointment.display');
 
 // Doctors
 Route::get('/doctors', [DoctorController::class, 'index'])->name('auth.doctors.index');

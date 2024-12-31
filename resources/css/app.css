@@ -56,6 +56,10 @@ p {
     @apply font-spectral text-base text-justify;
 }
 
+a {
+    @apply cursor-pointer;
+}
+
 html {
     @apply h-full;
 }
@@ -66,6 +70,10 @@ body {
 
 input {
     @apply px-2.5 py-2 rounded-xl;
+}
+
+svg {
+    @apply size-6;
 }
 
 @layer components {
