@@ -13,7 +13,7 @@
         <a href="{{ route('auth.doctors.index') }}">Back</a>
 
         <h1>Schedule an Appointment</h1>
-        <form class="space-y-2.5" action="{{ route('auth.create.appointment', ["doctor_id" => $doctor_id]) }}" method="POST">
+        <form class="space-y-2.5" action="{{ route('auth.appointment.create', ["doctor_id" => $doctor_id]) }}" method="POST">
             @csrf
             <fieldset class="flex justify-between items-center h-10">
                 <label for="appointment-type">Appointment Type</label>

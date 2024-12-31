@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateAppointmentRequest;
 use App\Models\Appointment;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
@@ -44,12 +45,19 @@ class AppointmentController extends Controller
         $validatedRequest['doctor_id'] = $doctor_id;
         
         Appointment::create($validatedRequest);
-        return redirect()->route('auth.doctors.index');
+        return redirect()->route('auth.appointment.index');
         
     }
 
     public function schedule($doctor_id) {
         return view('schedule', ["doctor_id" => $doctor_id]);
+    }
+
+    public function delete($appointment_id) {
+        
+        Appointment::whereId($appointment_id)->delete();
+        return redirect()->route('auth.appointment.index');
+
     }
 
 }

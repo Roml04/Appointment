@@ -85,10 +85,10 @@
                         <tbody>
                             {{-- @foreach() --}}
                                 <tr class="hover:bg-blue-100">
-                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointments.index') }}">1sdfsdf0</a></td>
-                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointments.index') }}">10</a></td>
-                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointments.index') }}">10</a></td>
-                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointments.index') }}">10</a></td>
+                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointment.index') }}">1sdfsdf0</a></td>
+                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointment.index') }}">10</a></td>
+                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointment.index') }}">10</a></td>
+                                    <td><a class="py-2.5 flex justify-center" href="{{ route('auth.appointment.index') }}">10</a></td>
                                 </tr>
                             {{-- @endforeach --}}
                         </tbody>

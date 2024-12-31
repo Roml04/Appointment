@@ -11,10 +11,10 @@
 </style>
 <body class="flex gap-6">
     <x-sidebar/>
-    <div class="w-full">
+    <div class="w-full mb-20">
         
         <header>
-            <a href="{{ route('auth.appointments.index') }}">Back</a>
+            <a href="{{ route('auth.appointment.index') }}">Back</a>
         </header>
         <section class="flex flex-col gap-6 rounded-md">
 
@@ -70,16 +70,18 @@
                         </div>
                     </div>
                 </a>
+            </div>
 
-                
+            {{-- Additional Info --}}
+            <div class="py-4 px-10 border rounded-md border-gray-300 space-y-2.5">
+                <h3>Notes</h3>
+                <p class="px-2.5">{{ $appointmentDetails->notes }}</p>
             </div>
             
-            <div class="flex justify-end">
-                <button class="hover:outline rounded-md hover:outline-red-400 hover:outline-2 active:bg-red-800 active:text-white active:outline-red-800 hover:text-red-600 hover:bg-red-200 bg-gray-300 py-2.5 px-5 w-[25%]">Cancel Appointment</button>
-            </div>
-            {{-- <form action="POST">
-                <input type="submit" value="Cancel Appointment">
-            </form> --}}
+            <form class="flex justify-end" action="{{ route('auth.appointment.delete', ["appointment_id" => $appointmentDetails['id']]) }}" method="POST">
+                @csrf
+                <button type="submit" class="hover:outline rounded-md hover:outline-red-400 hover:outline-2 active:bg-red-800 active:text-white active:outline-red-800 hover:text-red-600 hover:bg-red-200 bg-gray-300 py-2.5 px-5 w-[25%]">Cancel Appointment</button>
+            </form>
         </section>
 
     </div>
