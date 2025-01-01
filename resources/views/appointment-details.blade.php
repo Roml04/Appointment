@@ -75,7 +75,7 @@
             {{-- Additional Info --}}
             <div class="py-4 px-10 border rounded-md border-gray-300 space-y-2.5">
                 <h3>Notes</h3>
-                <p class="px-2.5">{{ $appointmentDetails->notes }}</p>
+                <p class="">{{ $appointmentDetails->notes }}</p>
             </div>
             
             <form class="flex justify-end" action="{{ route('auth.appointment.delete', ["appointment_id" => $appointmentDetails['id']]) }}" method="POST">

@@ -12,9 +12,6 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index() {
-        // 
-    }
 
     public function login(LoginUserRequest $request) {
         
@@ -58,8 +55,6 @@ class UserController extends Controller
     }
 
     public function logout(Request $request) {
-
-        // dd($request);
         
         $request->session()->invalidate();
         
