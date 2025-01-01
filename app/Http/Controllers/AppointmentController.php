@@ -50,7 +50,16 @@ class AppointmentController extends Controller
     }
 
     public function schedule($doctor_id) {
-        return view('schedule', ["doctor_id" => $doctor_id]);
+
+        $appointmentObj = Appointment::where('doctor_id', $doctor_id)->get();
+
+        foreach($appointmentObj as $appointment) {
+            $docFullName = $appointment->doctor->user['firstname'] . " " . $appointment->doctor->user['lastname'];
+            $doctor['specialization'] = $appointment->doctor['specialization'];
+            $doctor['docFullName'] = $docFullName;
+        }
+        
+        return view('schedule', ["doctor_id" => $doctor_id, "doctor" => $doctor]);
     }
 
     public function delete($appointment_id) {

@@ -22,7 +22,7 @@ class PatientController extends Controller
 
         foreach($incomingAppointments as $appointment) {
             $doctor = $appointment->doctor->user;
-            $appointment['docFullName'] = $doctor->firstname . $doctor->lastname;
+            $appointment['docFullName'] = $doctor->firstname . " " . $doctor->lastname;
         }
 
         return view('dashboard', ["dashBoardInfo" => $dashBoardInfo, "incomingAppointments" => $incomingAppointments, 'pagename' => 'Dashboard']);
