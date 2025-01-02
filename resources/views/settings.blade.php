@@ -38,27 +38,33 @@
                         <h2>Personal Information</h2>
                         <ul id="personal-info-container">
                             <li>
-                                <strong>First Name</strong>
-                                <div>
+                                <p>First Name</p>
+                                <div class="flex justify-center">
                                     <input id="inputFirstName" type="text" value="{{ $userInfo['firstname'] }}" disabled>
-                                    <button class="hidden" id="saveButton">Save</button>
-                                    <button class="" id="editButton">Edit</button>
+                                    <div class="flex justify-center">
+                                        <button class="hidden" id="saveButton">Save</button>
+                                        <button class="" id="editButton">Edit</button>
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <strong>Middle Name</strong>
-                                <div>
+                                <p>Middle Name</p>
+                                <div class="flex justify-center">
                                     <input id="inputMiddleName" type="text" value="{{ $userInfo['middlename'] }}" disabled>
-                                    <button class="hidden" id="saveButton">Save</button>
-                                    <button class="" id="editButton">Edit</button>
+                                    <div class="flex justify-center">
+                                        <button class="hidden" id="saveButton">Save</button>
+                                        <button class="" id="editButton">Edit</button>
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <strong>Last Name</strong>
-                                <div>
+                                <p>Last Name</p>
+                                <div class="flex justify-center">
                                     <input id="inputLastName" type="text" value="{{ $userInfo['lastname'] }}" disabled>
-                                    <button class="hidden" id="saveButton">Save</button>
-                                    <button class="" id="editButton">Edit</button>
+                                    <div class="flex justify-center">
+                                        <button class="hidden" id="saveButton">Save</button>
+                                        <button class="" id="editButton">Edit</button>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -67,14 +73,14 @@
                         <h2>Account Information</h2>
                         <ul id="account-info-container">
                             <li>
-                                <strong>Email Name</strong>
+                                <p>Email Name</p>
                                 <div>
                                     <input id="inputEmail" type="text" value="{{ $userInfo['email'] }}" disabled>
                                     <button class="" id="editButton"">Edit</button>
                                 </div>
                             </li>
                             <li>
-                                <strong>Password Name</strong>
+                                <p>Password Name</p>
                                 <div>
                                     <input id="inputPassword" type="text" value="" disabled>
                                     <button class="" id="editButton"">Edit</button>
