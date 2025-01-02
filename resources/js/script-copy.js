@@ -11,17 +11,40 @@ const parentContainer = document.getElementById('parent-container');
 
 let inputFieldsArray = [];
 
+console.log('Adding Input Fields to Array');
+
 for (let i = 0; i <= parentContainer.children.length - 1; i++) {
     for (let j = 0; j <= parentContainer.children[i].lastElementChild.children.length - 1; j++) {
+        console.log('');
+        console.log('Parent Container: ', i);
+        console.log('Input Field: ', j);
         inputFieldsArray.push(parentContainer.children[i].lastElementChild.children[j].lastElementChild.firstElementChild);
+        console.log("List Added");
+        console.log(inputFieldsArray);
     }
+    console.log('===Parent Completed===');
 }
 
+console.log('');
+console.log('===Input Field Adding Completed===');
+console.log(inputFieldsArray);
+console.log('');
+console.log('');
+
 for(let i = 0; i <= inputFieldsArray.length - 1; i++) {
+    console.log(inputFieldsArray[i]);
+    console.log(inputFieldsArray[i].defaultValue);
     patientInfoDefaultValues[i] = inputFieldsArray[i].defaultValue;
 }
 
+console.log('Default Values and Reset Arrays Defined');
+console.log("==patientInfoDefaultValues==");
+console.log(patientInfoDefaultValues);
+
 patientInfoForReset = patientInfoDefaultValues;
+
+console.log("==patientInfoForReset==");
+console.log(patientInfoForReset);
 
 // Personal Info
 
@@ -94,6 +117,8 @@ function enableDisableInputFields(editBtn, saveBtn, inputFld) {
 function saveInputFieldValue(editBtn, saveBtn, inputFld) {
     
     if(patientInfoForReset[inputFld.id] !== inputFld.value) {
+        console.log(inputFld.value, " !== ", patientInfoForReset[inputFld.id]);
+        console.log(patientInfoForReset[inputFld.id] !== inputFld.value);
         showDiscardButton();
     }
     
@@ -105,14 +130,15 @@ function saveInputFieldValue(editBtn, saveBtn, inputFld) {
 }
 
 function showDiscardButton() {
+    
+    console.log('===Discard Button Shown===');
     const dicardButton = document.getElementById('discard-button');
     dicardButton.classList.remove('hidden');
     
     const saveButton = document.getElementById('save-button');
-    saveButton.classList.remove('hidden');   
+    saveButton.classList.remove('hidden');
+    
 }
-
-// Discarding Changes
 
 const discardChangesButton = document.getElementById('discard-button');
 
@@ -121,12 +147,30 @@ discardChangesButton.addEventListener('click', function () {
 })
 
 function discardChanges() {
-   
+
+    console.log('Discarding Changes...');
+    console.log(patientInfoForReset);
+    
     for (let i = 0; i <= patientInfoForReset.length - 1; i++) {
 
         inputFieldsArray[i].value = patientInfoForReset[i];
         inputFieldsArray[i].defaultValue = patientInfoForReset[i];
         
     }
-
+    
+    console.log("Default Values");
+    console.log(inputFirstName.defaultValue);
+    console.log(inputMiddleName.defaultValue);
+    console.log(inputLastName.defaultValue);
+    console.log(inputEmail.defaultValue);
+    console.log(inputPassword.defaultValue);
+    
+    console.log("Current Values");
+    console.log(inputFirstName.value);
+    console.log(inputMiddleName.value);
+    console.log(inputLastName.value);
+    console.log(inputEmail.value);
+    console.log(inputPassword.value);
+    
+    console.log("Changes Discarded");
 }
