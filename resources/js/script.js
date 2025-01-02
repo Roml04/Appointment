@@ -94,7 +94,7 @@ function enableDisableInputFields(editBtn, saveBtn, inputFld) {
 function saveInputFieldValue(editBtn, saveBtn, inputFld) {
     
     if(patientInfoForReset[inputFld.id] !== inputFld.value) {
-        showDiscardButton();
+        showDiscardButton(discardButton, saveButton);
     }
     
     let newDefaultVal = inputFld.defaultValue = inputFld.value;
@@ -104,20 +104,21 @@ function saveInputFieldValue(editBtn, saveBtn, inputFld) {
     enableDisableInputFields(editBtn, saveBtn, inputFld);
 }
 
-function showDiscardButton() {
-    const dicardButton = document.getElementById('discard-button');
+function showDiscardButton(dicardButton, saveButton) {
     dicardButton.classList.remove('hidden');
     
-    const saveButton = document.getElementById('save-button');
     saveButton.classList.remove('hidden');   
 }
 
 // Discarding Changes
 
-const discardChangesButton = document.getElementById('discard-button');
+const discardButton = document.getElementById('discard-button');
+const saveButton = document.getElementById('save-button');
 
-discardChangesButton.addEventListener('click', function () {
+discardButton.addEventListener('click', function () {
     discardChanges();
+    discardButton.classList.add('hidden');
+    saveButton.classList.add('hidden');
 })
 
 function discardChanges() {
