@@ -20,7 +20,7 @@
 
     {{-- User Info --}}
     <div class="flex flex-col gap-5">
-        <div class="flex items-center gap-5 flex-1">
+        <a href="{{ route('auth.settings') }}" class="flex items-center gap-5 flex-1">
 
             {{-- 
             
@@ -33,12 +33,11 @@
             <img class="size-20 rounded-full object-cover object-center" src="{{ asset('images/userpfp/default-userpfp.jpg') }}" alt="">
             <div class="overflow-hidden h-full flex flex-col justify-between py-2.5">
 
-                {{-- {{ dd(Auth::user()) }} --}}
                 <h3 class="overflow-hidden text-ellipsis">{{ Auth::user()->firstname }}</h3>
                 <p class="overflow-hidden text-ellipsis">{{ Auth::user()->email }}</p>
             </div>
 
-        </div>
+        </a>
         
         {{-- component --}}
         <form action="{{ route('user.logout') }}" method="POST" class="flex justify-center">

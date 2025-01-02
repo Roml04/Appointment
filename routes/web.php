@@ -23,20 +23,19 @@ Route::get('/register', function () {
 
 // Authenticated Only
 
-// Dashboard
 Route::get('/dashboard', [PatientController::class, 'viewDashboard'])->name('auth.dashboard');
 
-// Appointments
 Route::get('/appointments', [AppointmentController::class, 'index'])->name('auth.appointment.index');
 
 Route::get('/appointments/{appointment_id}', [AppointmentController::class, 'display'])->name('auth.appointment.display');
 
-// Doctors
 Route::get('/doctors', [DoctorController::class, 'index'])->name('auth.doctors.index');
 
-// Schedule
 Route::get('/doctors/{doctor_id}', [AppointmentController::class, 'schedule'])->name('auth.doctors.schedule');
 
+Route::get('/settings', [UserController::class, 'viewSettings'])->name('auth.settings');
+
+// Route::get('/settings/edit', [UserController::class, 'editSettings'])->name('auth.settings.edit');
 
 
 Route::post('/register', [UserController::class, 'register'])->name('user.register');

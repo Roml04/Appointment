@@ -65,4 +65,35 @@ class UserController extends Controller
         return redirect()->route('guest.landing');
 
     }
+
+    public function viewSettings() {
+
+        $user = User::where('id', Auth::user()->id)->get();
+        
+        foreach($user as $values) {
+            $userInfo['firstname'] = $values->firstname;
+            $userInfo['middlename'] = $values->middlename;
+            $userInfo['lastname'] = $values->lastname;
+            $userInfo['email'] = $values->email;
+        }
+        
+        return view('settings', ["userInfo" => $userInfo, "pagename" => "Settings", "isInputDisabled" => true]);
+
+    }
+
+    // public function editSettings() {
+
+    //     $user = User::where('id', Auth::user()->id)->get();
+        
+    //     foreach($user as $values) {
+    //         $userInfo['firstname'] = $values->firstname;
+    //         $userInfo['middlename'] = $values->middlename;
+    //         $userInfo['lastname'] = $values->lastname;
+    //         $userInfo['email'] = $values->email;
+    //     }
+        
+    //     return view('settings', ["userInfo" => $userInfo, "pagename" => "Settings", "isInputDisabled" => false]);
+
+    // }
+    
 }
