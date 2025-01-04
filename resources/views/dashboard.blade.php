@@ -23,7 +23,7 @@
                     <p>Welcome,</p>
 
                     {{-- Put this line below into its controller --}}
-                    <h1> {{ Auth::user()->firstname . " " . Auth::user()->lastname }} </h1>
+                    <h1> {{ $dashBoardInfo['patFullName'] }} </h1>
                     <p class="w-2/4">Have no idea who to consult with? No problem! Let us explore the <a class="inline hover:underline" href="{{ route('auth.doctors.index') }}">Doctors Tab</a> to find the right doctor for you. Browse through a variety of specialists, read their profiles, and make an informed choice for your health needs with just a few clicks.</p>
                 </div>
                 

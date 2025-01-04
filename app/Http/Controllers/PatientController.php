@@ -14,7 +14,7 @@ class PatientController extends Controller
 
         $user = Auth::user();
 
-        $dashBoardInfo['patFullName'] = $user->firstname;
+        $dashBoardInfo['patFullName'] = $user->firstname . " " . $user->lastname;
         $dashBoardInfo['numOfDoctors'] = Doctor::count();
         $dashBoardInfo['numOfPatients'] = Patient::count();
 

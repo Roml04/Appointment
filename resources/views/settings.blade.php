@@ -101,14 +101,14 @@
                                         </div>
                                     </div>
                                 </li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <ul class="pl-6">
                                 <li>
                                     <p>Password</p>
                                     <div class="flex justify-center gap-6">
-                                        <input placeholder="Password" name="password" class="focus:outline-none py-1 px-5" id="inputPassword" type="text" value="">
-                                        <div class="flex justify-center gap-6">
-                                            <button type="button" class="hidden" id="saveButton">Save</button>
-                                            <button type="button" class="" id="editButton"">Edit</button>
-                                        </div>
+                                        <a href="">Change password</a>
                                     </div>
                                 </li>
                             </ul>

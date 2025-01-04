@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class EditInfoRequest extends FormRequest
 {
@@ -22,13 +23,12 @@ class EditInfoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'firstname'  => ['nullable', 'string', 'max:255'],
+            'firstname'  => ['required', 'string', 'max:255'],
             'middlename' => ['nullable', 'string', 'max:255'],
-            'lastname' => ['nullable', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
             'contact' => ['nullable', 'max:255'],
-            'birthdate' => ['nullable', 'date', 'before:today'],
-            'email' => ['nullable', 'email'],
-            'password' => ['nullable', 'string','min:8', 'max:255']
+            'birthdate' => ['required', 'date', 'before:today'],
+            'email' => ['required', 'email'],
             // 'firstname'  => ['required', 'string', 'max:255'],
             // 'middlename' => ['nullable', 'string', 'max:255'],
             // 'lastname' => ['required', 'string', 'max:255'],
@@ -37,5 +37,14 @@ class EditInfoRequest extends FormRequest
             // 'email' => ['required', 'email'],
             // 'password' => ['required', 'string','min:8', 'max:255']
         ];
+    }
+
+    public function prepareForValidation(): void
+    {
+        $this->merge([
+            'firstname' => Str::title($this->firstname),
+            'lastname' => Str::title($this->lastname),
+            'middlename' => $this->middlename !== null ? Str::title($this->middlename) : null,
+        ]);   
     }
 }

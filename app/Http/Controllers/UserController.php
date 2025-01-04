@@ -10,6 +10,7 @@ use App\Models\Patient;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\ValidatedInput;
 
 class UserController extends Controller
 {
@@ -34,7 +35,6 @@ class UserController extends Controller
     public function register(RegisterUserRequest $request) {
 
         $validatedCredentials = $request->validated();
-
         
         $user = User::create($validatedCredentials);
 
@@ -88,9 +88,10 @@ class UserController extends Controller
 
         // dd($request);
         $validatedInfo = $request->validated();
-        dd($validatedInfo);
-        
-        return view();
+
+        $updated = User::where('id', Auth::user()->id)->update($validatedInfo);
+
+        return redirect()->route('auth.settings');
 
     }
     
