@@ -28,14 +28,10 @@
             <a href="{{ route('auth.dashboard') }}">Back</a>
         </header>
         <section class="flex flex-col w-full">
-            <form class="w-full flex flex-col gap-6">
+            <form action="{{ route('auth.settings.edit') }}" method="POST" class="w-full flex flex-col gap-6">
 
                 @csrf
                 <div>
-                    {{-- <form action="{{ route('auth.settings.edit', ["isInputDisabled" => false]) }}" method="POST"> --}}
-                        {{-- @csrf --}}
-                        
-                    {{-- </form> --}}
                     <div id="parent-container" class="flex flex-col gap-12">
                         <div class="flex flex-col gap-3">
                             <h2 class="">Personal Information</h2>
@@ -43,7 +39,7 @@
                                 <li>
                                     <p>First Name</p>
                                     <div class="flex justify-center gap-6">
-                                        <input class="py-1 px-5" id="inputFirstName" type="text" value="{{ $userInfo['firstname'] }}" disabled>
+                                        <input placeholder="First Name" name="firstname" class="focus:outline-none py-1 px-5" id="inputFirstName" type="text" value="{{ $userInfo['firstname'] }}" >
                                         <div class="flex justify-center gap-6">
                                             <button type="button" class="hidden" id="saveButton">Save</button>
                                             <button type="button" class="" id="editButton">Edit</button>
@@ -53,7 +49,7 @@
                                 <li>
                                     <p>Middle Name</p>
                                     <div class="flex justify-center gap-6">
-                                        <input class="group py-1 px-5" id="inputMiddleName" type="text" value="{{ $userInfo['middlename'] }}" disabled>
+                                        <input placeholder="Middle Name" name="middlename" class="focus:outline-none py-1 px-5" id="inputMiddleName" type="text" value="{{ $userInfo['middlename'] }}">
                                         <div class="flex justify-center gap-6">
                                             <button type="button" class="hidden" id="saveButton">Save</button>
                                             <button type="button" class="" id="editButton">Edit</button>
@@ -63,7 +59,27 @@
                                 <li>
                                     <p>Last Name</p>
                                     <div class="flex justify-center gap-6">
-                                        <input class="group py-1 px-5" id="inputLastName" type="text" value="{{ $userInfo['lastname'] }}" disabled>
+                                        <input placeholder="Last Name" name="lastname" class="focus:outline-none py-1 px-5" id="inputLastName" type="text" value="{{ $userInfo['lastname'] }}">
+                                        <div class="flex justify-center gap-6">
+                                            <button type="button" class="hidden" id="saveButton">Save</button>
+                                            <button type="button" class="" id="editButton">Edit</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p>Birthdate</p>
+                                    <div class="flex justify-center gap-6">
+                                        <input placeholder="Birthdate" name="birthdate" class="focus:outline-none py-1 px-5" id="inputBirthDate" type="date" value="{{ $userInfo['birthdate'] }}">
+                                        <div class="flex justify-center gap-6">
+                                            <button type="button" class="hidden" id="saveButton">Save</button>
+                                            <button type="button" class="" id="editButton">Edit</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <p>Contact Number</p>
+                                    <div class="flex justify-center gap-6">
+                                        <input placeholder="Phone Number" name="contact" class="focus:outline-none py-1 px-5" id="inputContact" type="text" value="{{ $userInfo['contact'] }}">
                                         <div class="flex justify-center gap-6">
                                             <button type="button" class="hidden" id="saveButton">Save</button>
                                             <button type="button" class="" id="editButton">Edit</button>
@@ -78,7 +94,7 @@
                                 <li>
                                     <p>Email</p>
                                     <div class="flex justify-center gap-6">
-                                        <input class="group py-1 px-5" id="inputEmail" type="text" value="{{ $userInfo['email'] }}" disabled>
+                                        <input placeholder="Email" name="email" class="focus:outline-none py-1 px-5" id="inputEmail" type="text" value="{{ $userInfo['email'] }}">
                                         <div class="flex justify-center gap-6">
                                             <button type="button" class="hidden" id="saveButton">Save</button>
                                             <button type="button" class="" id="editButton"">Edit</button>
@@ -88,7 +104,7 @@
                                 <li>
                                     <p>Password</p>
                                     <div class="flex justify-center gap-6">
-                                        <input class="group py-1 px-5" id="inputPassword" type="text" value="" disabled>
+                                        <input placeholder="Password" name="password" class="focus:outline-none py-1 px-5" id="inputPassword" type="text" value="">
                                         <div class="flex justify-center gap-6">
                                             <button type="button" class="hidden" id="saveButton">Save</button>
                                             <button type="button" class="" id="editButton"">Edit</button>

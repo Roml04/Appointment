@@ -35,8 +35,6 @@ Route::get('/doctors/{doctor_id}', [AppointmentController::class, 'schedule'])->
 
 Route::get('/settings', [UserController::class, 'viewSettings'])->name('auth.settings');
 
-// Route::get('/settings/edit', [UserController::class, 'editSettings'])->name('auth.settings.edit');
-
 
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
 
@@ -47,3 +45,5 @@ Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
 Route::post('/appointments/{appointment_id}', [AppointmentController::class, 'delete'])->name('auth.appointment.delete');
 
 Route::post('/doctors/{doctor_id}', [AppointmentController::class, 'create'])->name('auth.appointment.create');
+
+Route::post('/settings/edit', [UserController::class, 'editSettings'])->name('auth.settings.edit');

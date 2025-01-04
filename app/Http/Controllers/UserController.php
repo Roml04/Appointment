@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EditInfoRequest;
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\RegisterUserRequest;
 use App\Models\Doctor;
@@ -74,6 +75,8 @@ class UserController extends Controller
             $userInfo['firstname'] = $values->firstname;
             $userInfo['middlename'] = $values->middlename;
             $userInfo['lastname'] = $values->lastname;
+            $userInfo['birthdate'] = $values->birthdate;
+            $userInfo['contact'] = $values->contact;
             $userInfo['email'] = $values->email;
         }
         
@@ -81,19 +84,14 @@ class UserController extends Controller
 
     }
 
-    // public function editSettings() {
+    public function editSettings(EditInfoRequest $request) {
 
-    //     $user = User::where('id', Auth::user()->id)->get();
+        // dd($request);
+        $validatedInfo = $request->validated();
+        dd($validatedInfo);
         
-    //     foreach($user as $values) {
-    //         $userInfo['firstname'] = $values->firstname;
-    //         $userInfo['middlename'] = $values->middlename;
-    //         $userInfo['lastname'] = $values->lastname;
-    //         $userInfo['email'] = $values->email;
-    //     }
-        
-    //     return view('settings', ["userInfo" => $userInfo, "pagename" => "Settings", "isInputDisabled" => false]);
+        return view();
 
-    // }
+    }
     
 }

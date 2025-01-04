@@ -1,19 +1,18 @@
 let patientInfo = ['First Name', 'Middle Name', 'Last Name', 'Email', 'Password'];
 
-const editButton = document.getElementById('editButton');
-
-const cancelButton = document.getElementById('cancelButton');
-
 let patientInfoDefaultValues = [];
 let patientInfoForReset = [];
 
+const cancelButton = document.getElementById('cancelButton');
 const parentContainer = document.getElementById('parent-container');
 
 let inputFieldsArray = [];
 
 for (let i = 0; i <= parentContainer.children.length - 1; i++) {
     for (let j = 0; j <= parentContainer.children[i].lastElementChild.children.length - 1; j++) {
-        inputFieldsArray.push(parentContainer.children[i].lastElementChild.children[j].lastElementChild.firstElementChild);
+        let currentElem = parentContainer.children[i].lastElementChild.children[j].lastElementChild.firstElementChild;
+        currentElem.readOnly = true;
+        inputFieldsArray.push(currentElem);
     }
 }
 
@@ -24,11 +23,8 @@ for(let i = 0; i <= inputFieldsArray.length - 1; i++) {
 patientInfoForReset = patientInfoDefaultValues;
 
 // Personal Info
-
 const personalInfoContainer = document.getElementById('personal-info-container');
-
 let personalInfoChildren = personalInfoContainer.children;
-
 let editButtonArray = [];
 let saveButtonArray = [];
 
@@ -39,22 +35,16 @@ for (let i = 0; i <= personalInfoChildren.length - 1; i++) {
 
 for (let i = 0; i <= editButtonArray.length - 1; i++) {
     editButtonArray[i].addEventListener('click', function() {
-
         checkForEdits(editButtonArray[i], saveButtonArray[i], personalInfoChildren[i].lastElementChild.firstElementChild);
     })
-
     saveButtonArray[i].addEventListener('click', function() {
-        
         saveInputFieldValue(editButtonArray[i], saveButtonArray[i], personalInfoChildren[i].lastElementChild.firstElementChild);
     })
 }
 
 // Account Info
-
 const accountInfoContainer = document.getElementById('account-info-container');
-
 let accountInfoChildren = accountInfoContainer.children;
-
 let accEditButtonArray = [];
 let accSaveButtonArray = [];
 
@@ -76,29 +66,24 @@ for (let i = 0; i <= accEditButtonArray.length - 1; i++) {
 // Functions
 
 function checkForEdits(editBtn, saveBtn, inputFld) {
-
     if(inputFld.value !== inputFld.defaultValue) {
         inputFld.value = inputFld.defaultValue;
     }
-
     enableDisableInputFields(editBtn, saveBtn, inputFld);
 }
 
 function enableDisableInputFields(editBtn, saveBtn, inputFld) {
-
     editBtn.textContent = editBtn.textContent === 'Edit' ? 'Cancel' : 'Edit';
     saveBtn.classList.toggle('hidden');
-    inputFld.toggleAttribute('disabled');
+    inputFld.toggleAttribute('readonly');
 }
 
 function saveInputFieldValue(editBtn, saveBtn, inputFld) {
-    
     if(patientInfoForReset[inputFld.id] !== inputFld.value) {
         showDiscardButton(discardButton, saveButton);
     }
-    
-    let newDefaultVal = inputFld.defaultValue = inputFld.value;
 
+    let newDefaultVal = inputFld.defaultValue = inputFld.value;
     patientInfoDefaultValues[inputFld.id] = newDefaultVal;
 
     enableDisableInputFields(editBtn, saveBtn, inputFld);
@@ -106,12 +91,10 @@ function saveInputFieldValue(editBtn, saveBtn, inputFld) {
 
 function showDiscardButton(dicardButton, saveButton) {
     dicardButton.classList.remove('hidden');
-    
     saveButton.classList.remove('hidden');   
 }
 
 // Discarding Changes
-
 const discardButton = document.getElementById('discard-button');
 const saveButton = document.getElementById('save-button');
 
@@ -119,15 +102,11 @@ discardButton.addEventListener('click', function () {
     discardChanges();
     discardButton.classList.add('hidden');
     saveButton.classList.add('hidden');
-})
+});
 
 function discardChanges() {
-   
     for (let i = 0; i <= patientInfoForReset.length - 1; i++) {
-
         inputFieldsArray[i].value = patientInfoForReset[i];
         inputFieldsArray[i].defaultValue = patientInfoForReset[i];
-        
     }
-
 }
