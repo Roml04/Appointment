@@ -14,7 +14,7 @@
             <h2>{{ $pagename }}</h2>
         </x-headerauth>
         <ul class="doctor-list space-y-5">
-
+            
             @foreach($doctors as $doctor)
                 <li class="group  flex w-full justify-between px-5 py-2.5">
                     <div>

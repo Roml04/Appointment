@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Doctor;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,24 @@ class DoctorSeeder extends Seeder
      */
     public function run(): void
     {
-        Doctor::factory()->count(10)->create();
+        $users = User::doesntHave('doctor')->inRandomOrder()->get();
+
+        foreach($users as $user) {
+            Doctor::create([
+                'user_id' => $user->id,
+                'specialization' => fake()->randomElement([
+                    'Cardiology',
+                    'Neurology',
+                    'Pediatrics',
+                    'Orthopedics',
+                    'Dermatology',
+                    'Oncology',
+                    'Psychiatry',
+                    'Gynecology',
+                    'Radiology',
+                    'Urology'
+                ])
+            ]);
+        }
     }
 }

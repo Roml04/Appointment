@@ -4,6 +4,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Route;
@@ -36,7 +37,7 @@ Route::get('/doctors/{doctor_id}', [AppointmentController::class, 'schedule'])->
 
 Route::get('/settings', [UserController::class, 'viewSettings'])->name('auth.settings');
 
-Route::get('/search', [Controller::class, 'search'])->name('auth.search');
+Route::get('/search', [SearchController::class, 'search'])->name('auth.search');
 
 
 Route::post('/register', [UserController::class, 'register'])->name('user.register');

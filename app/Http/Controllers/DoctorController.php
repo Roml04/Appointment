@@ -15,9 +15,9 @@ class DoctorController extends Controller
             $doctorName = $doctor->user;
             $doctor['docFullName'] = $doctorName['firstname'] . " " . $doctorName['lastname'];
             $doctor['specialization'] = $doctor['specialization'] === null ? 'Unknown' : $doctor['specialization'];
-            $doctors[] = $doctor;
+            $doctorsColl[] = $doctor;
         }
 
-        return view('doctors',["doctors" => $doctors, "pagename" => 'Doctors']);
+        return view('doctors',["doctors" => $doctorsColl, "pagename" => 'Doctors']);
     }
 }
