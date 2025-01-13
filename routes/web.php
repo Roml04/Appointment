@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\UserController;
@@ -34,6 +35,8 @@ Route::get('/doctors', [DoctorController::class, 'index'])->name('auth.doctors.i
 Route::get('/doctors/{doctor_id}', [AppointmentController::class, 'schedule'])->name('auth.doctors.schedule');
 
 Route::get('/settings', [UserController::class, 'viewSettings'])->name('auth.settings');
+
+Route::get('/search', [Controller::class, 'search'])->name('auth.search');
 
 
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
